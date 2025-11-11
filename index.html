@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anisa Fauziah - UI/UX Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #7F1734;
+            --secondary: #FFF0F5;
+            --accent: #C41E3A;
+            --text-dark: #2D1B2E;
+            --text-light: #F5F1F7;
+        }
+
+        * {
+            --tw-text-opacity: 1;
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        /* Tambah animasi scroll untuk elemen */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .scroll-animate {
+            opacity: 1;
+        }
+
+        .scroll-animate.animate-in {
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+
+        .scroll-animate-left {
+            opacity: 1;
+        }
+
+        .scroll-animate-left.animate-in {
+            animation: fadeInLeft 0.7s ease-out forwards;
+        }
+
+        .scroll-animate-right {
+            opacity: 1;
+        }
+
+        .scroll-animate-right.animate-in {
+            animation: fadeInRight 0.7s ease-out forwards;
+        }
+
+        .scroll-animate-scale {
+            opacity: 1;
+        }
+
+        .scroll-animate-scale.animate-in {
+            animation: scaleIn 0.7s ease-out forwards;
+        }
+
+        .scroll-animate-bounce {
+            opacity: 1;
+        }
+
+        .scroll-animate-bounce.animate-in {
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        .pulse-element {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .glow-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(127, 23, 52, 0.3);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(127, 23, 52, 0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 12px rgba(127, 23, 52, 0.08);
+        }
+
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(127, 23, 52, 0.15);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(127, 23, 52, 0.08);
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(127, 23, 52, 0.15);
+        }
+
+        .decorative-element {
+            position: absolute;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/80 shadow-sm border-b border-pink-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text">Anisa Fauziah</div>
+            <div class="hidden md:flex gap-8">
+                <a href="#home" class="hover:text-red-700 transition">Home</a>
+                <a href="#about" class="hover:text-red-700 transition">About</a>
+                <a href="#projects" class="hover:text-red-700 transition">Projects</a>
+                <a href="#contact" class="hover:text-red-700 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+<section id="home" class="relative overflow-hidden pt-24 pb-20 px-4">
+    <div class="decorative-element -top-20 -right-20 w-96 h-96 rounded-full border-4 border-red-700"></div>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10 px-6">
+        <div class="pr-8">
+            <span class="inline-block px-4 py-2 rounded-full bg-red-100 text-red-700 font-semibold text-sm mb-4 scroll-animate animate-in">Welcome to my portfolio</span>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4 text-gray-900">
+                Hi, I'm <span class="gradient-text scroll-animate animate-in">Anisa Fauziah</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-2 scroll-animate animate-in">UI/UX Designer & System Analyst</p>
+            <p class="text-gray-600 mb-8 leading-relaxed scroll-animate animate-in">
+                A graduate in Information Technology with expertise in UI/UX Design, system analysis, and web interface development. Certified as a BNSP System Analyst and Microsoft Office Specialist Excel 2019 Associate. </p>
+        </div>
+        <div class="flex justify-center">
+            <div class="relative w-72 h-72 float pulse-element">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-600 to-red-800 rounded-3xl transform rotate-6"></div>
+                <img src="public/photo.jpeg" 
+                     class="relative w-full h-full object-cover rounded-3xl">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+<section id="about" class="py-20 px-4 bg-white/50">
+    <div class="max-w-6xl mx-auto text-center">
+        <h2 class="section-title scroll-animate-left animate-in">About Me</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto scroll-animate animate-in">
+            Information Technology graduate skilled in UI/UX Design, system analysis, and web interface development. Internship experience at the Yogyakarta Communication and Informatics Office, with strong learning ability, teamwork, adaptability, and contribution to enhancing user experience.
+        </p>
+        <div class="grid md:grid-cols-3 gap-8 mt-12">
+            <!-- Figma Card -->
+            <div class="service-card scroll-animate-bounce glow-hover animate-in">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Figma, HTML, CSS</h3>
+                <p class="text-gray-600 leading-relaxed">Skilled in creating UI/UX designs and web interface development.</p>
+            </div>
+
+            <!-- Microsoft Office Card -->
+            <div class="service-card scroll-animate-bounce glow-hover animate-in">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Microsoft Office</h3>
+                <p class="text-gray-600 leading-relaxed">Proficient in Word, Excel, and PowerPoint; Microsoft Excel Associate Certified.</p>
+                <a href="public/excel.jpg" class="inline-block mt-3 px-4 py-2 bg-red-700 text-white rounded hover:bg-red-900 transition">
+                    View Certificate →
+                </a>
+            </div>
+
+            <!-- System Analysis Card -->
+            <div class="service-card scroll-animate-bounce glow-hover animate-in">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">System Analysis</h3>
+                <p class="text-gray-600 leading-relaxed">Certified BNSP System Analyst with experience designing web-based systems.</p>
+                <a href="public/bnsp.jpg" class="inline-block mt-3 px-4 py-2 bg-red-700 text-white rounded hover:bg-red-900 transition">
+                    View Certificate →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- View Prototype Section -->
+<section id="prototype" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+        <h2 class="section-title scroll-animate-left animate-in">View My Prototype</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto scroll-animate animate-in">
+            Click the links below to explore my Figma prototypes
+        </p>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+        <!-- Prototype 1 -->
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition scroll-animate-bounce animate-in overflow-hidden">
+            <img src="public/Beranda.png" alt="eSurat Mahasiswa" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">eSurat Mahasiswa</h3>
+                <p class="text-gray-600 mb-4 text-sm">A Final Project focused on developing a self-service website that automates the submission of administrative requests (such as permission letters, scholarship applications, and signature approvals) for students of the Information Technology Department, eliminating the need to visit the campus in person.</p>
+                <a href="https://www.figma.com/design/NzyRqmQoYKqb5RxP6lVqJR/TA?node-id=183-67&t=zH2bXZoCY3LiGY8F-1" target="_blank" class="inline-block px-4 py-2 bg-red-700 text-white rounded hover:bg-red-900 transition">
+                    Open Figma →
+                </a>
+            </div>
+        </div>
+
+        <!-- Prototype 2 -->
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition scroll-animate-bounce animate-in overflow-hidden">
+            <img src="public/bsk.jpeg" alt="Sistem Katalog Produk" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Sistem Katalog Produk</h3>
+                <p class="text-gray-600 mb-4 text-sm">Case Study/BNSP in the form of a complete **System Proposal** for **Banjar Sari Catering (BSK)**.
+                    This mobile marketplace system is designed to connect customers and merchants in order to address the issues of manual catering order processes.
+                    Responsible for **Functional and Non-Functional Requirements Analysis**, **Functional Model Design (Use Case/Activity Diagram)**, and **UI Prototype Design**.
+                    </p>
+                <a href="https://www.figma.com/proto/YAaNEdBmPvdOUIxNf0CTBS/Untitled?node-id=1-3&starting-point-node-id=1%3A3&t=dCv6PhSuhKC3UyGm-1" target="_blank" class="inline-block px-4 py-2 bg-red-700 text-white rounded hover:bg-red-900 transition">
+                    Open Figma →
+                </a>
+            </div>
+        </div>
+
+        <!-- Prototype 3 -->
+        <div class="bg-white rounded-lg shadow hover:shadow-lg transition scroll-animate-bounce animate-in overflow-hidden">
+            <img src="public/Home.jpg" alt="Aplikasi Layanan Sosial" class="w-full h-48 object-cover">
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">SIMFONI LKS</h3>
+                <p class="text-gray-600 mb-4 text-sm">The internship project focuses on designing a web interface for the Social Welfare Institution (LKS) report management system for the Department of Social Affairs using Figma. The project applies the **User-Centered Design (UCD)** approach to both the LKS and Admin pages, aiming to create an **intuitive, consistent, and user-friendly interface** for data management and report submission.
+                </p>
+                <a href="https://www.figma.com/design/88vys5dyDd5IiCAztEQ36x/LKS?node-id=0-1" target="_blank" class="inline-block px-4 py-2 bg-red-700 text-white rounded hover:bg-red-900 transition">
+                    Open Figma →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Experience Section -->
+    <section class="py-20 px-4 bg-white/50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="section-title text-center mb-16 scroll-animate-left animate-in">Experience & Education</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+                        <span class="w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center">📚</span>
+                        Education
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-red-700 scroll-animate animate-in">
+                            <h4 class="font-bold text-gray-900">Bachelor of Information Technology</h4>
+                            <p class="text-red-700 font-semibold">Universitas Muhammadiyah Yogyakarta</p>
+                            <p class="text-gray-600 text-sm mt-2">GPA: 3.33 / 4.00</p>
+                            <p class="text-gray-600 text-sm mt-2">Aug 2021 - Jul 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-2">
+                        <span class="w-10 h-10 rounded-full bg-red-700 text-white flex items-center justify-center">💼</span>
+                        Experience
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="p-6 bg-white rounded-lg shadow-sm border-l-4 border-red-700 scroll-animate animate-in">
+                            <h4 class="font-bold text-gray-900">UI/UX Intern</h4>
+                            <p class="text-red-700 font-semibold">Dinas Komunikasi Informatika dan Persandian Kota Yogyakarta</p>
+                            <p class="text-gray-600 text-sm mt-2">Jun 2024 - Aug 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 relative overflow-hidden">
+        <div class="decorative-element -bottom-10 -left-20 w-96 h-96 rounded-full border-4 border-red-700"></div>
+        <div class="max-w-3xl mx-auto text-center relative z-10">
+            <h2 class="section-title scroll-animate-left animate-in">Let's Connect</h2>
+            <p class="text-gray-600 text-lg mb-8 leading-relaxed scroll-animate animate-in">
+                Feel free to reach out via email, phone, or LinkedIn.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 mt-16">
+                <div class="bg-white p-8 rounded-lg shadow-sm scroll-animate animate-in">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Email</h3>
+                    <a href="mailto:fzhnsa@gmail.com" class="text-red-700 hover:text-red-900 transition">fzhnsa@gmail.com</a>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm scroll-animate animate-in">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Phone</h3>
+                    <p class="text-gray-600">08131835123 | 0895359659544</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm scroll-animate animate-in">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Location</h3>
+                    <p class="text-gray-600">Kab. Serang, Banten</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-sm scroll-animate animate-in">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">LinkedIn</h3>
+                    <p class="text-gray-600">linkedin.com/in/fzhnsa13</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-red-700 to-red-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="mb-2">&copy; 2025 Anisa Fauziah. All rights reserved.</p>
+            <p class="text-pink-200 text-sm">Crafted with passion | Designed with care</p>
+        </div>
+    </footer>
+
+    <!-- Simplified scroll animation script -->
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -30px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe semua elemen yang punya class scroll-animate
+        document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right, .scroll-animate-scale, .scroll-animate-bounce').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tambah delay pada card items untuk stagger effect
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach((card, index) => {
+            card.classList.add('scroll-animate-bounce');
+            card.style.animationDelay = (index * 0.15) + 's';
+            observer.observe(card);
+        });
+
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach((card, index) => {
+            card.classList.add('scroll-animate-bounce');
+            card.style.animationDelay = (index * 0.15) + 's';
+            observer.observe(card);
+        });
+
+        const toolsCards = document.querySelectorAll('.text-center.scroll-animate-bounce');
+        toolsCards.forEach((card, index) => {
+            card.style.animationDelay = (index * 0.1) + 's';
+            observer.observe(card);
+        });
+
+        // Animasi title section
+        document.querySelectorAll('.section-title').forEach((title) => {
+            title.classList.add('scroll-animate-left');
+            title.style.animationDelay = '0.2s';
+            observer.observe(title);
+        });
+
+        // Floating animation untuk hero image
+        const heroImage = document.querySelector('#home .relative.w-72');
+        if (heroImage) {
+            heroImage.classList.add('float');
+        }
+
+        // Trigger hero animations saat page load
+        setTimeout(() => {
+            const heroElements = document.querySelectorAll('#home .scroll-animate, #home .scroll-animate-left, #home .scroll-animate-right');
+            heroElements.forEach(el => {
+                el.classList.add('animate-in');
+            });
+        }, 100);
+    </script>
+</body>
+</html>
